@@ -16,7 +16,7 @@ class Inscription extends CI_Controller {
       $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|xss_clean');
       $this->form_validation->set_rules('adresse', 'Adresse postale', 'trim|required|xss_clean');
       $this->form_validation->set_rules('pays', 'Pays', 'trim|required|alpha|xss_clean');
-      $this->form_validation->set_rules('ville', 'Ville', 'trim|required|alpha|xss_clean');
+      $this->form_validation->set_rules('ville', 'Ville', 'trim|required|xss_clean');
       $this->form_validation->set_rules('cp', 'Code postal', 'trim|required|numeric|xss_clean');
       $this->form_validation->set_rules('mdp', 'Mot de passe', 'required|min_length[8]|alpha_numeric|xss_clean');
       // $this->form_validation->set_rules('fichier', 'Papier d\'identité', 'required|sanitize_filename');
@@ -37,8 +37,6 @@ class Inscription extends CI_Controller {
           $new_name = "identite_client_".$this->input->post('nom')."_".date('YmdHis').".".$ext_fichier;
           $destination = "../goldfish/".$new_name;
           if (move_uploaded_file($_FILES['fichier']['tmp_name'], $destination)) {
-              echo "Le fichier temporaire ".$_FILES["fichier"]["tmp_name"].
-                " a été déplacé.";
 
               // hachage mot de passe et récupération des données utilisateur
               $hash_pass = password_hash('$this->input->post(\'mdp\')', PASSWORD_BCRYPT);
@@ -62,7 +60,7 @@ class Inscription extends CI_Controller {
               $this->client->inscription_client($info);
               // renvoie l'utilisateur sur la page d'accueil.
               $this->load->view('templates/header');
-              $this->load->view('pages/'.$page);
+              $this->load->view('pages/portail');
               $this->load->view('templates/footer');
 
           }
