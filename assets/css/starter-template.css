@@ -1,0 +1,97 @@
+body {
+  padding-top: 5rem;
+}
+
+/* main style */
+.bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+/* end main style */
+
+.title {
+  color: #2E2E2E;
+  text-shadow: 5px 5px #FFD700AA;
+}
+
+/* Navbar */
+.template {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.page-title {
+  color: #FFD700;
+}
+
+/* images portail */
+.logo-portail {
+  max-height: 15%;
+  max-width: 15%;
+  padding-bottom: 1.7rem;
+}
+
+.banker-img {
+  width: 100%;
+}
+
+/* CSS for bankers presentation */
+.banker-name {
+  font-weight: 600;
+}
+.jumbotron {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+  background-color: #fff;
+}
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron h1 {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+  max-width: 40rem;
+}
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}
+
+/* form styling */
+.container {
+  max-width: 960px;
+}
+
+.lh-condensed { line-height: 1.25; }
+
+.button_color {
+  border: none;
+  color: #2E2E2E;
+  background: #FFD700;
+}
