@@ -1,7 +1,7 @@
       <main role="main" class="container bg-light">
           <div class="template">
             <h1 class="title">Picsou Banque</h1>
-            <img src="../assets/img/logo_picsou.png" alt="Logo de la banque picsou : une pièce d'un euro." class="logo-portail">
+            <img src="<?php echo base_url(); ?>assets/img/logo_picsou.png" alt="Logo de la banque picsou : une pièce d'un euro." class="logo-portail">
           </div>
           <div class="col-md-12 order-md-1">
               <h4 class="mb-3">Informations personnelles</h4>

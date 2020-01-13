@@ -19,7 +19,7 @@ class Inscription extends CI_Controller {
       $this->form_validation->set_rules('ville', 'Ville', 'trim|required|xss_clean');
       $this->form_validation->set_rules('cp', 'Code postal', 'trim|required|numeric|xss_clean');
       $this->form_validation->set_rules('mdp', 'Mot de passe', 'required|min_length[8]|alpha_numeric|xss_clean');
-      // $this->form_validation->set_rules('fichier', 'Papier d\'identité', 'required|sanitize_filename');
+      $this->form_validation->set_rules('fichier', 'Papier d\'identité', 'required|sanitize_filename');
 
       if ($this->form_validation->run() !== FALSE){
 
