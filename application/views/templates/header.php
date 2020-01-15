@@ -25,8 +25,8 @@
                     <li class="nav-item active dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">se connecter</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown01">
-                            <a class="dropdown-item" href="<?php echo base_url(); ?>connexion/client">Client</a>
-                            <a class="dropdown-item" href="<?php echo base_url(); ?>connexion/banker">Banquier</a>
+                            <a class="dropdown-item" href="<?php echo base_url(); ?>connexion_client">Client</a>
+                            <a class="dropdown-item" href="<?php echo base_url(); ?>connexion_banker">Banquier</a>
                             <a class="dropdown-item" href="<?php echo base_url(); ?>inscription">S'inscrire</a>
                         </div>
                     </li>

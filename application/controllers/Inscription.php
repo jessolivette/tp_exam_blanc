@@ -19,18 +19,19 @@ class Inscription extends CI_Controller {
       $this->form_validation->set_rules('ville', 'Ville', 'trim|required|xss_clean');
       $this->form_validation->set_rules('cp', 'Code postal', 'trim|required|numeric|xss_clean');
       $this->form_validation->set_rules('mdp', 'Mot de passe', 'required|min_length[8]|alpha_numeric|xss_clean');
-      $this->form_validation->set_rules('fichier', 'Papier d\'identité', 'required|sanitize_filename');
+      $this->form_validation->set_rules('fichier', 'Papier d\'identité', 'sanitize_filename');
+
+      //var_dump($_FILES['fichier']);
 
       if ($this->form_validation->run() !== FALSE){
-
         // récupération et traitement du fichier utilisateur
         $ext_autorisees = array('jpeg', 'jpg', 'pdf');
         $nom_origine = $_FILES['fichier']['name'];
-        $get_ext = new SplFileInfo("$nom_origine");
+        $get_ext = new SplFileInfo($nom_origine);
         $ext_fichier = $get_ext->getExtension();
 
         if (!(in_array($ext_fichier, $ext_autorisees))) {
-          echo "le fichier doit avoir l'extention : .jpeg, .jpg ou .pdf";
+          echo "Vous devez joindre un fichier avec l'extention : .jpeg, .jpg ou .pdf";
         } // end if (vérification du format du fichier)
         else {
           // renomage et copie dans le répertoire de destination.
@@ -39,7 +40,7 @@ class Inscription extends CI_Controller {
           if (move_uploaded_file($_FILES['fichier']['tmp_name'], $destination)) {
 
               // hachage mot de passe et récupération des données utilisateur
-              $hash_pass = password_hash('$this->input->post(\'mdp\')', PASSWORD_BCRYPT);
+              $hash_pass = password_hash($this->input->post('mdp'), PASSWORD_DEFAULT);
               $info = array(
                   'nom' => $this->input->post('nom'),
                   'prenom' => $this->input->post('prenom'),
@@ -65,8 +66,7 @@ class Inscription extends CI_Controller {
 
           }
           else { // si l'upload a échoué.
-              echo "Le fichier n'a pas été uploadé (trop gros ?) ou ".
-                  "Le déplacement du fichier temporaire a échoué.";
+              echo "Le fichier n'a pas été uploadé (trop gros ?) ou le déplacement du fichier temporaire a échoué.";
           }
         } // end if else
 

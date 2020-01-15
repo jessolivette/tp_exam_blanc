@@ -53,7 +53,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['form_inscription'] = 'form_inscription';
 $route['inscription'] = 'inscription';
-$route['connexion'] = 'connexion';
+$route['connexion_client'] = 'connexion_client';
+$route['connexion_banker'] = 'connexion_banker';
 
 $route['default_controller'] = 'pages/view';
 $route['(:any)'] = 'pages/view/$1';

@@ -5,9 +5,12 @@
             <div class="template">
               <h1 class="title">Picsou Banque</h1>
               <img src="<?php echo base_url(); ?>assets/img/logo_picsou.png" alt="Logo de la banque picsou : une pièce d'un euro." class="logo-portail">
-              <p class="lead">Votre banque en ligne<br> Simple, accessible, sécurisée, pas chère<br> 1&euro; Offert pour toute ouverture de compte ! (ou un café chez Jean-Paul)</p>
+              <?php if(!(isset($validation))) {
+                      echo '<p class="lead">Votre banque en ligne<br> Simple, accessible, sécurisée, pas chère<br> 1&euro; Offert pour toute ouverture de compte ! (ou un café chez Jean-Paul)</p>';
+                    }
+                    else { echo '<p class="lead">'.$validation.'</p>'; }
+              ?>
             </div>
-
             <!-- banker's presentations -->
             <div class="album py-5 bg-light">
                 <div class="container">

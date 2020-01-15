@@ -71,7 +71,7 @@
                 <p>Afin de créer votre compte, nous vous demandons de bien vouloir nous fournir le scan d'une pièce d'identité en cour de validité (passeport, carte nationnale d'identité).</p>
                 <div class="mb-3">
                     <input type="hidden" name="MAX_FILE_SIZE" value="1000000" />
-                    <input type="file" name="fichier">
+                    <input type="file" name="fichier" required>
                     <?php echo form_error('fichier'); ?>
                 </div>
                 <hr class="mb-4">
