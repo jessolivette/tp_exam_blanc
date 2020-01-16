@@ -14,17 +14,26 @@ class Connexion_banker extends CI_Controller {
         $this->form_validation->set_rules('code_perso', 'Code personnel', 'required|min_length[8]|alpha_numeric|xss_clean');
 
         if ($this->form_validation->run() !== FALSE) {
+            // gather banker infos to display his own space
             $this->load->model('login');
             $res = $this->login->get_user(
                         $this->input->post('nom'),
                         $this->input->post('code_perso')
                     );
-        // var_dump($res); // testing query result OK
+            // var_dump($res); // testing query result OK
 
+            // gather waiting validation clients.
+            $this->load->model('client');
+            $res_client = $this->client->select_client();
+            // var_dump($res_client); // testing query result OK
 
-        /* CODE DE REDIRECTION VERS LA PLATEFORME BANQUIERS */
+            // loading banker space with customized variables
+            $data['banquier'] = $res->{'prenom'}." ".$res->{'nom'};
+            $data['res_client'] = $res_client;
 
-
+            $this->load->view('templates/header');
+            $this->load->view('pages/banker_space', $data);
+            $this->load->view('templates/footer');
 
         }
         else {
@@ -32,7 +41,7 @@ class Connexion_banker extends CI_Controller {
              $this->load->view('forms/form_connexion_banker');
              $this->load->view('templates/footer');
         }
-    }
+    } // end index()
 }
 
 ?>
