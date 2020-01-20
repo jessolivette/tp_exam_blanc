@@ -24,7 +24,7 @@ class Connexion_banker extends CI_Controller {
 
             // gather waiting validation clients.
             $this->load->model('client');
-            $res_client = $this->client->select_client();
+            $res_client = $this->client->select_waiting_client();
             // var_dump($res_client); // testing query result OK
 
             // loading banker space with customized variables

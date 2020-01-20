@@ -7,12 +7,13 @@ class Client extends CI_Model {
         $this->db->insert('client', $info);
     } // end insert function.
 
-    public function select_client() {
+    public function select_waiting_client() {
         $q = $this->db
                   ->where('valide', 0)
                   ->get('client');
 
         $waiting_client = array(
+            'id_client' => array(),
             'nom' => array(),
             'prenom' => array(),
             'date_naissance' => array(),
@@ -24,6 +25,7 @@ class Client extends CI_Model {
             'papier_identite' => array()
         );
         foreach ($q->result() as $row) {
+            array_push($waiting_client['id_client'], $row->id_client);
             array_push($waiting_client['nom'], $row->nom);
             array_push($waiting_client['prenom'], $row->prenom);
             array_push($waiting_client['date_naissance'], $row->date_naissance);
