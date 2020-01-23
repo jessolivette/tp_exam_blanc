@@ -29,7 +29,20 @@
     <div class="template bg-light">
         <h4 class="mb-4">Mes clients</h4>
         <div class="container">
-            <div class="row">
+            <div class="row" id="currentClients">
+              <?php
+              for($i=0; $i < count($res_val_client["nom"]); $i++) {
+                  echo '<div class="col-md-4">
+                            <div class="card mb-4 shadow-sm">
+                                <img src="'.$res_val_client["papier_identite"][$i].'" alt="prévisualisation papier identité client" class="banker-img">
+                                <div class="card-body">
+                                    <p class="card-text"><span class="bold-text">'.$res_val_client["nom"][$i]." ".$res_val_client["prenom"][$i].'</span></p>
+                                    <p>'.$res_val_client["date_naissance"][$i].'<br>'.$res_val_client["email"][$i].'<br>'.$res_val_client["adresse_postale"][$i].'<br>'.$res_val_client["cp"][$i]." ".$res_val_client["ville"][$i].'<br>'.$res_val_client["pays"][$i].'</p>
+                                    <input class="clientId" name="clientId" type="hidden" value="'.$res_val_client["id_client"][$i].'">
+                                </div>
+                            </div>
+                        </div>';
+              } ?>
             </div>
         </div>
     </div>

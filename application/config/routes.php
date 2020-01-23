@@ -55,6 +55,7 @@ $route['form_inscription'] = 'form_inscription';
 $route['inscription'] = 'inscription';
 $route['connexion_client'] = 'connexion_client';
 $route['connexion_banker'] = 'connexion_banker';
+$route['account_creation'] = 'account_creation';
 
 $route['default_controller'] = 'pages/view';
 $route['(:any)'] = 'pages/view/$1';

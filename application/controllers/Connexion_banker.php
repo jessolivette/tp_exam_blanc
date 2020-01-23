@@ -22,14 +22,21 @@ class Connexion_banker extends CI_Controller {
                     );
             // var_dump($res); // testing query result OK
 
+            // initialize user session.
+            $_SESSION['id_user'] = $res->{'id_banquier'};
+            $_SESSION['nom'] = $res->{'nom'};
+            $_SESSION['prenom'] = $res->{'prenom'};
+
             // gather waiting validation clients.
             $this->load->model('client');
             $res_client = $this->client->select_waiting_client();
+            $validated_client = $this->client->select_validated_client();
             // var_dump($res_client); // testing query result OK
 
             // loading banker space with customized variables
-            $data['banquier'] = $res->{'prenom'}." ".$res->{'nom'};
+            $data['banquier'] = $_SESSION['prenom']." ".$_SESSION['nom'];
             $data['res_client'] = $res_client;
+            $data['res_val_client'] = $validated_client;
 
             $this->load->view('templates/header');
             $this->load->view('pages/banker_space', $data);
