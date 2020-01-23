@@ -35,7 +35,7 @@ function validateClient(index) {
      req.onreadystatechange = function () {
         if(req.readyState == 4) {
             if(req.status == 200) {
-                storing(req.responseText); // appel fonct° d'affichage de la réponse du serveur
+                storing( JSON.parse(req.responseText)); // appel fonct° d'affichage de la réponse du serveur
             }
             else {
                 alert("Error: returned status code " + req.status + " " + req.statusText);

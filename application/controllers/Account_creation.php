@@ -14,7 +14,7 @@ class Account_creation extends CI_Controller {
       $this->load->model('client');
 
       $this->client->update_status($cId);
-      $vc = json_encode($this->client->select_validated_client());
+      return json_encode($this->client->select_validated_client());
       // $this->account->accountCreation($cId);
 
   }
